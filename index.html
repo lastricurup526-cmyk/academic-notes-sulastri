@@ -1,0 +1,437 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="description" content="Academic Notes — ruang pribadi untuk catatan dan referensi akademik.">
+  <title>Academic Notes — Personal Academic Space</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="brandHome" aria-label="Academic Notes beranda">
+        <span class="brand-mark">A.</span>
+        <span>
+          <b>academicnotes</b>
+          <small>PERSONAL ACADEMIC SPACE</small>
+        </span>
+      </a>
+
+      <div class="topbar-right">
+        <span class="status-dot"></span>
+        <span>MY ACADEMIC JOURNAL</span>
+        <span class="top-divider">/</span>
+        <span>A SPACE TO LEARN &amp; GROW</span>
+
+        <button type="button" class="outline-button" id="ownerLoginButton">
+          Login pemilik
+        </button>
+
+        <span id="ownerStatus" class="hidden">Mode pengunjung</span>
+
+        <button type="button" class="outline-button hidden" id="ownerLogoutButton">
+          Keluar
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="homeView">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> MY ACADEMIC JOURNAL</p>
+          <h1>Setiap ide<br><em>punya tempat.</em></h1>
+          <p class="hero-description">
+            Ruang pribadi untuk merangkai pemikiran, menyimpan pengetahuan,
+            dan mendokumentasikan perjalanan akademikmu.
+          </p>
+          <p class="hero-quote">
+            “Menulis adalah cara kita memahami apa yang sedang kita pelajari.”
+          </p>
+          <button type="button" class="text-link" id="openLibraryTop">
+            Jelajahi ruang catatan <span>↗</span>
+          </button>
+        </div>
+
+        <div class="hero-visual" id="heroVisual">
+          <div class="hero-image-overlay"></div>
+          <div class="hero-image-note">
+            <span>FIELD NOTES</span>
+            <b>Learn. Reflect.<br>Remember.</b>
+          </div>
+          <div class="hero-caption">
+            A PERSONAL SPACE FOR GROWTH <span>01 — 04</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-section section-rule">
+        <div class="section-kicker"><span>01</span> STUDENT PROFILE</div>
+
+        <div class="profile-card">
+          <div class="profile-photo-wrap">
+            <img id="profileImage" alt="Foto profil mahasiswa" class="profile-photo">
+            <div class="profile-initial" id="profileInitial">M</div>
+          </div>
+
+          <div class="profile-main">
+            <p class="eyebrow">YOUR IDENTITY</p>
+            <h2 id="profileName">Nama Mahasiswa</h2>
+            <p class="profile-npm" id="profileNpm">NPM belum diisi</p>
+
+            <div class="profile-meta">
+              <div>
+                <span>PROGRAM STUDI</span>
+                <b id="profileProdi">Belum diisi</b>
+              </div>
+              <div>
+                <span>FAKULTAS</span>
+                <b id="profileFakultas">Belum diisi</b>
+              </div>
+              <div>
+                <span>UNIVERSITAS</span>
+                <b id="profileUniversitas">Belum diisi</b>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="edit-profile" id="editProfile">
+            Edit profil &amp; foto ↗
+          </button>
+        </div>
+      </section>
+
+      <section class="learning-section section-rule">
+        <div class="section-kicker"><span>02</span> MY LEARNING SPACE</div>
+
+        <div class="learning-heading">
+          <div>
+            <h2>Mata kuliah : Akuntansi Keuangan Lanjutan </em></h2>
+          </div>
+          <div class="course-count">
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">✳</div>
+          <div class="course-card-copy">
+            <span>YOUR IDEAS START HERE</span>
+            <p id="courseDescription">
+               Buat Catatan Kuliah, Simpan Artikel, dan Referensi Akademikmu.
+            </p>
+          </div>
+          <button type="button" class="primary-button" id="openLibrary">
+            Buka ruang catatan <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="library-view hidden" id="libraryView">
+        <div class="library-heading">
+          <div>
+            <p class="eyebrow">PERSONAL KNOWLEDGE LIBRARY</p>
+            <h1>Ruang <em>catatan.</em></h1>
+            <p>Semua pemikiranmu, dalam satu tempat.</p>
+          </div>
+          <button type="button" class="outline-button" id="backHome">← Profil</button>
+        </div>
+
+        <div class="library-toolbar">
+          <label class="searchbox">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Cari judul atau isi catatan...">
+          </label>
+          <button type="button" class="primary-button" id="newNote">＋ Catatan baru</button>
+        </div>
+
+        <div class="library-tabs" id="filterTabs">
+          <button type="button" class="filter-tab active" data-filter="all">Semua catatan</button>
+          <button type="button" class="filter-tab" data-filter="materi">Catatan kuliah</button>
+          <button type="button" class="filter-tab" data-filter="artikel">Artikel</button>
+          <button type="button" class="filter-tab" data-filter="jurnal">Ringkasan jurnal</button>
+          <button type="button" class="filter-tab" data-filter="favorite">Favorit</button>
+        </div>
+
+        <div class="library-summary">
+          <span id="noteCount">0 catatan</span>
+          <span>Konten akademik</span>
+        </div>
+
+        <div id="notesGrid" class="notes-grid"></div>
+
+        <section class="editor-panel hidden" id="editorPanel">
+          <div class="editor-topline">
+            <button type="button" class="back-link" id="cancelEditor">← Kembali ke catatan</button>
+            <span id="editorState">Catatan baru</span>
+          </div>
+
+          <form id="noteForm">
+            <input id="noteId" type="hidden">
+
+            <label class="field-label">
+              JUDUL CATATAN
+              <input id="noteTitle" required maxlength="160" placeholder="Tuliskan judul di sini...">
+            </label>
+
+            <div class="editor-row">
+              <label class="field-label">
+                JENIS CATATAN
+                <select id="noteType">
+                  <option value="materi">Catatan kuliah</option>
+                  <option value="artikel">Artikel</option>
+                  <option value="jurnal">Ringkasan jurnal</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
+              </label>
+
+              <label class="field-label">
+                SUBMATERI
+                <input id="noteTopic" placeholder="Contoh: Konsep dasar">
+              </label>
+            </div>
+
+            <div class="rich-toolbar" aria-label="Format teks">
+              <button type="button" data-command="formatBlock" data-value="h2">H2</button>
+              <button type="button" data-command="formatBlock" data-value="h3">H3</button>
+              <button type="button" data-command="bold"><b>B</b></button>
+              <button type="button" data-command="italic"><i>I</i></button>
+              <button type="button" data-command="underline"><u>U</u></button>
+              <button type="button" data-command="insertUnorderedList">• Daftar</button>
+              <button type="button" data-command="insertOrderedList">1. Daftar</button>
+              <button type="button" id="insertLink">↗ Tautan</button>
+              <button type="button" data-command="formatBlock" data-value="blockquote">Kutipan</button>
+              <button type="button" id="clearFormat">Hapus format</button>
+            </div>
+
+            <div
+              id="noteBody"
+              class="note-body"
+              contenteditable="true"
+              data-placeholder="Mulai menulis catatanmu di sini..."
+              role="textbox"
+              aria-multiline="true"
+            ></div>
+
+            <div class="sources-heading">
+              <div>
+                <p class="eyebrow">SOURCES &amp; CITATIONS</p>
+                <h2>Referensi akademik</h2>
+              </div>
+              <button type="button" class="outline-button" id="addReference">
+                ＋ Tambah referensi
+              </button>
+            </div>
+
+            <div id="referencesList" class="references-list"></div>
+
+            <div class="editor-actions">
+              <button type="button" class="outline-button" id="cancelEditorBottom">Batal</button>
+              <button type="submit" class="primary-button">
+                Simpan catatan <span>→</span>
+              </button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand">
+        <span class="brand-mark">A.</span>
+        <b>ACADEMIC NOTES</b>
+      </div>
+      <p>Made for learning, built for thinking.</p>
+      <span>© <span id="year"></span> PERSONAL ACADEMIC SPACE</span>
+    </footer>
+  </div>
+
+  <!-- Formulir login pemilik -->
+  <dialog id="ownerLoginDialog" class="modal">
+    <form id="ownerLoginForm">
+      <div class="modal-heading">
+        <div>
+          <p class="eyebrow">OWNER ACCESS</p>
+          <h2>Login pemilik</h2>
+        </div>
+        <button type="button" class="close-modal" id="closeOwnerLogin" aria-label="Tutup">×</button>
+      </div>
+
+      <p class="privacy-note">
+        Masuk menggunakan akun pemilik yang sudah terdaftar.
+      </p>
+
+      <label class="field-label">
+        Email
+        <input id="ownerEmail" type="email" autocomplete="username" required placeholder="Email pemilik">
+      </label>
+
+      <label class="field-label">
+        Kata sandi
+        <input id="ownerPassword" type="password" autocomplete="current-password" required placeholder="Kata sandi">
+      </label>
+
+      <p id="ownerLoginMessage" class="privacy-note" role="status" aria-live="polite"></p>
+
+      <div class="modal-actions">
+        <button type="button" class="outline-button" id="cancelOwnerLogin">Batal</button>
+        <button type="submit" class="primary-button" id="ownerLoginSubmit">Masuk</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Edit profil dan upload foto manual -->
+  <dialog id="profileDialog" class="modal">
+    <form id="profileForm">
+      <div class="modal-heading">
+        <div>
+          <p class="eyebrow">YOUR IDENTITY</p>
+          <h2>Edit profil mahasiswa</h2>
+        </div>
+        <button type="button" class="close-modal" id="closeProfile" aria-label="Tutup">×</button>
+      </div>
+
+      <div class="modal-photo-row">
+        <div class="modal-avatar">
+          <img id="dialogProfileImage" alt="Pratinjau foto profil">
+          <span id="dialogProfileInitial">M</span>
+        </div>
+
+        <div class="profile-photo-controls">
+          <b>Foto profil</b>
+          <p>Foto profil diambil dari folder assets.</p>
+        
+          <label for="profilePhotoFile" class="outline-button">
+            Pilih foto
+          </label>
+          <input
+            type="file"
+            id="profilePhotoFile"
+            accept="image/jpeg,image/png,image/webp"
+            hidden
+          >
+
+          <small>Format JPG, PNG, atau WEBP. Maksimal 5 MB.</small>
+          <p id="profilePhotoStatus" class="privacy-note" role="status" aria-live="polite">
+            Belum ada foto baru yang dipilih.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <label class="field-label">
+          Nama lengkap
+          <input id="inputName" placeholder="Nama lengkap">
+        </label>
+
+        <label class="field-label">
+          NPM
+          <input id="inputNpm" placeholder="Nomor pokok mahasiswa">
+        </label>
+
+        <label class="field-label">
+          Program studi
+          <input id="inputProdi" placeholder="Program studi">
+        </label>
+
+        <label class="field-label">
+          Fakultas
+          <input id="inputFakultas" placeholder="Fakultas">
+        </label>
+
+        <label class="field-label">
+          Universitas
+          <input id="inputUniversitas" placeholder="Nama universitas">
+        </label>
+
+        <label class="field-label">
+          Mata kuliah
+          <input id="inputCourse" placeholder="Nama mata kuliah">
+        </label>
+      </div>
+
+      <label class="field-label">
+        Deskripsi singkat mata kuliah
+        <textarea id="inputDescription" rows="2" placeholder="Tujuan atau gambaran singkat ruang catatan ini"></textarea>
+      </label>
+
+      <p class="privacy-note">
+  Foto profil menggunakan file lokal assets/profil.jpeg.
+</p>
+
+      <div class="modal-actions">
+        <button type="button" class="outline-button" id="cancelProfile">Batal</button>
+        <button type="submit" class="primary-button">Simpan perubahan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Formulir referensi akademik -->
+  <dialog id="referenceDialog" class="modal reference-modal">
+    <form id="referenceForm" method="dialog">
+      <div class="modal-heading">
+        <div>
+          <p class="eyebrow">SOURCES &amp; CITATIONS</p>
+          <h2>Referensi akademik</h2>
+        </div>
+        <button type="button" class="close-modal" id="closeReference" aria-label="Tutup">×</button>
+      </div>
+
+      <input type="hidden" id="referenceId">
+
+      <label class="field-label">
+        Judul sumber
+        <input id="refTitle" required placeholder="Judul jurnal atau artikel">
+      </label>
+
+      <div class="form-grid">
+        <label class="field-label">
+          Jenis sumber
+          <select id="refType">
+            <option>Jurnal ilmiah</option>
+            <option>Artikel</option>
+            <option>Buku</option>
+            <option>Sumber lainnya</option>
+          </select>
+        </label>
+
+        <label class="field-label">
+          Penulis
+          <input id="refAuthor" placeholder="Nama penulis">
+        </label>
+
+        <label class="field-label">
+          Tahun terbit
+          <input id="refYear" inputmode="numeric" placeholder="2026">
+        </label>
+
+        <label class="field-label">
+          URL atau DOI
+          <input id="refUrl" placeholder="https://... atau DOI">
+        </label>
+      </div>
+
+      <label class="field-label">
+        Catatan
+        <textarea id="refNote" rows="3" placeholder="Mengapa sumber ini relevan?"></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button type="button" class="outline-button" id="cancelReference">Batal</button>
+        <button type="submit" class="primary-button">Simpan referensi</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
